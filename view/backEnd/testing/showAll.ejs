@@ -1,0 +1,116 @@
+<%- include("../include/head")  %> 
+<%- include("../include/aside")  %> 
+<%- include("../include/navePare")  %> 
+<%- include("../include/alert")  %> 
+<style>
+	.testPar {
+		width:250px;
+		overflow: hidden;
+		white-space:nowrap;
+	}
+	.searchDisability {
+		width:100%;
+		text-align: center;
+		padding:20px 0 10px
+	}
+	.searchDisability input {
+		padding:7px ;
+		width:70%;
+		border:0;
+		outline: 0;
+		border-radius: 25px;
+		border:1px solid #ddd;
+		box-shadow: 7px 7px 15px rgba(0,0,0,0.1);
+	}
+</style>
+</head>
+    </body>
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Page Wrapper -->
+            <div class="page-wrapper">
+                <div class="content container-fluid">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <div class="row">
+                            <div class="col-sm-7 col-auto">
+                                <h3 class="page-title">كل التدريبات</h3>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">لوحه التحكم</a></li>
+                                    <li class="breadcrumb-item active">التدريبات</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <%- include("../include/notification")  %> 
+                    </div>
+                    <!-- /Page Header -->
+                    <div class="row">
+                        <div class="col-sm-12">
+							<div class="card">
+								<div class="searchDisability"><input class="" type="text" name="" placeholder="ابحث عن طريق الاعاقه .." id=""></div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table class="datatable table table-hover table-center mb-0">
+											<thead>
+												<tr>
+													<th>رقم الاختبار </th>
+													<th>الاختبار</th>
+													<th>الاعاقه</th>
+													<th>التحكم</th>
+												</tr>
+											</thead>
+											<tbody>
+												<% Testing.forEach(element => { %>
+													<tr>
+													<td>الاختبار رقم (<%= element.numberOfTest %>)</td>
+													<td><p class="testPar"><%= element.exam%></p> </td>
+													<td class="disability"><p class="testPar"><%= element.TestingDisability.name%></p> </td>
+													
+													<td>
+														<a href="/dashpord/activeTesting/<%= element.id %>?isActive=<%= element.active %>" class="btn btn-primary"><%= !element.active ? "غير مفعل" : "مفعل" %></a>
+														<a href="/dashpord/EditTesting/<%= element.id %>" class="btn btn-success">تعدبل</a>
+														<form class="d-inline" method="post" action="/dashpord/deleteTesting/<%= element.id %>">
+															<button class="btn btn-danger">حذف</button>
+														</form>
+
+													</td>
+												</tr>
+												<% }) %>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>	
+                    </div>
+                </div>			
+            </div>
+            <!-- /Page Wrapper -->
+
+
+        <%- include("../include/footer_script")  %> 
+        		
+		<!-- Datatables JS -->
+
+		<script src="/backEnd/assets/plugins/datatables/datatables.min.js"></script>
+		<script src="/backEnd/assets/js/form-tags.js"></script>
+        <script  src="/backEnd/assets/js/script.js"></script>
+		<script>
+			var searchDisability = document.querySelector(".searchDisability")
+			var input = searchDisability.querySelector("input")
+			input.oninput = (e) => {
+				var disability = document.querySelectorAll("table tr > td.disability")
+				disability.forEach(ele => {
+					ele.parentElement.classList.remove("d-none")
+				})
+				disability.forEach(ele => {
+					console.log(ele.innerHTML)
+					if(!ele.firstElementChild.innerHTML.includes(e.target.value)) {
+						ele.parentElement.classList.add("d-none")
+					}
+				})
+			}
+		</script>
+    </head>
+</body>

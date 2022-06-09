@@ -1,0 +1,65 @@
+			
+			<!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+					<div id="sidebar-menu" class="sidebar-menu">
+						<ul>
+							<li class="menu-title"> 
+								<span>Main</span>
+							</li>
+							<li class="<%= URL == "/dashpord" ? "active" : "" %>"> 
+								<a href="/dashpord" class="d-flex align-items-center justify-content-between"> <span>لوحه التحكم </span><i class="fe fe-home"></i></a>
+							</li>
+							
+							
+							<li class="submenu">
+								<a href="#" class="d-flex align-items-center justify-content-between"> <span> المستخدمين </span> <span class="menu-arrow" style="margin-left:20px"></span> <i class="fe fe-users"></i></a> 
+								<ul style="display: none;">
+									<li><a class="<%= URL == "/allUsers" ? "active" : "" %>" href="/dashpord/allUsers"> كل المستخدمين </a></li>
+									<!-- <li><a class="<%= URL == "/allUsers" ? "active" : "" %>" href="/dashpord/allUsers"> اضافه مستخدم </a></li> -->
+								</ul>
+							</li>
+							<li class="submenu">
+								<a href="#" class="d-flex align-items-center justify-content-between"> <span> الاعاقات </span> <span class="menu-arrow"></span><i style="font-size:20px" class="fe fe-bolt"></i></a> 
+								<ul style="display: none;">
+									<li><a class="<%= URL == "/AllDisability" ? "active" : "" %>" href="/dashpord/AllDisability"> كل الاعاقات </a></li>
+									<li><a class="<%= URL == "/addDisability" ? "active" : "" %>" href="/dashpord/addDisability"> اضافه اعاقه</a></li>
+								</ul>
+							</li>
+							
+							<li class="submenu">
+								<a href="#" class="d-flex align-items-center justify-content-between"> <span> التدريبات </span> <span class="menu-arrow"></span><i style="font-size:20px" class="fa fa-trademark"></i></a> 
+								<ul style="display: none;">
+									<li><a class="<%= URL == "/AllTraining" ? "active" : "" %>" href="/dashpord/AllTraining"> كل التدريبات </a></li>
+									<li><a class="<%= URL == "/addTraining" ? "active" : "" %>" href="/dashpord/addTraining"> اضافه تدريب</a></li>
+								</ul>
+							</li>
+							
+							<li class="submenu">
+								<a href="#" class="d-flex align-items-center justify-content-between"> <span> الاختبارات </span> <span class="menu-arrow"></span><i style="font-size:20px" class="fa fa-flask"></i></a> 
+								<ul style="display: none;">
+									<li><a class="<%= URL == "/AllTesting" ? "active" : "" %>" href="/dashpord/AllTesting"> كل الاختبارات </a></li>
+									<li><a class="<%= URL == "/addTesting" ? "active" : "" %>" href="/dashpord/addTesting"> اضافه اختبار</a></li>
+								</ul>
+							</li>
+										
+							
+							<li class="submenu">
+								<a href="#" class="d-flex align-items-center justify-content-between"> <span> رسايل المستخدمين </span> <span class="menu-arrow"></span><i style="font-size:20px" class="fa fa-text-height"></i></a> 
+								<ul style="display: none;">
+									<li><a class="<%= URL == "/AllMessage" ? "active" : "" %>" href="/dashpord/AllMessage"> كل الرسايل </a></li>
+								</ul>
+							</li>
+							
+							<li class="submenu">
+								<a href="#" class="d-flex align-items-center justify-content-between"> <span> كل اجبات المستخدمين </span> <span class="menu-arrow"></span><i style="font-size:20px" class="fa fa-text-height"></i></a> 
+								<ul style="display: none;">
+									<li><a class="<%= URL == "/showAllUserResult" ? "active" : "" %>" href="/dashpord/showAllUserResult"> كل الاجبات </a></li>
+								</ul>
+							</li>
+										
+						</ul>
+					</div>
+                </div>
+            </div>
+			<!-- /Sidebar -->
